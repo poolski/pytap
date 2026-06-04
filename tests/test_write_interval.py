@@ -4,10 +4,9 @@ from datetime import datetime
 import time
 from unittest.mock import MagicMock
 
-import pytest
-
 from homeassistant.const import CONF_HOST, CONF_PORT
 from homeassistant.core import HomeAssistant
+import pytest
 
 from custom_components.pytap.const import (
     CONF_MODULE_BARCODE,
@@ -19,9 +18,8 @@ from custom_components.pytap.const import (
     DEFAULT_PORT,
     DEFAULT_WRITE_INTERVAL,
 )
-from custom_components.pytap.coordinator import PyTapDataUpdateCoordinator, _AVERAGED_FIELDS
+from custom_components.pytap.coordinator import _AVERAGED_FIELDS, PyTapDataUpdateCoordinator
 from custom_components.pytap.pytap.core.events import InfrastructureEvent, PowerReportEvent
-
 
 MOCK_MODULES = [
     {
