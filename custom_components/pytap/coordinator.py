@@ -112,10 +112,10 @@ class PyTapDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._modules: list[dict[str, Any]] = entry.data.get(CONF_MODULES, [])
         raw_write_interval = entry.data.get(CONF_WRITE_INTERVAL, DEFAULT_WRITE_INTERVAL)
         try:
-            self._write_interval: float = float(raw_write_interval)
+            write_interval = float(raw_write_interval)
         except (TypeError, ValueError):
-            self._write_interval = float(DEFAULT_WRITE_INTERVAL)
-        self._write_interval = max(0.0, self._write_interval)
+            write_interval = float(DEFAULT_WRITE_INTERVAL)
+        self._write_interval: float = max(0.0, write_interval)
 
         # Build barcode allowlist from configured modules
         self._configured_barcodes: set[str] = {
